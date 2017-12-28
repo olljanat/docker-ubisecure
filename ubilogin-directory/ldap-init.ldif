@@ -1,0 +1,504 @@
+dn: cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: applicationProcess
+cn: Ubilogin
+structuralObjectClass: applicationProcess
+entryUUID: f36d52a4-8027-1037-8993-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143427Z
+entryCSN: 20171228143427.019396Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143427Z
+
+dn: ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: organizationalUnit
+objectClass: ubiloginUnit
+ou: System
+description: Ubilogin System
+structuralObjectClass: organizationalUnit
+entryUUID: f6a0807c-8027-1037-8994-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143432Z
+ubiloginManagedBy: cn=Administrators,ou=System,cn=Ubilogin,dc=localhost
+ubiloginAuthMethodDN: cn=password.1,cn=Server,ou=System,cn=Ubilogin,dc=local
+ host
+entryCSN: 20171228143435.231586Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143435Z
+
+dn: cn=Administrators,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: ubiloginGroup
+cn: Administrators
+description: System Administrators
+structuralObjectClass: ubiloginGroup
+entryUUID: f6e6e1de-8027-1037-8995-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143432Z
+entryCSN: 20171228143432.849189Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143432Z
+
+dn: cn=Authenticated Users,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: ubiloginGroup
+cn: Authenticated Users
+description: Group of all Authenticated Users
+structuralObjectClass: ubiloginGroup
+entryUUID: f6fdc2c8-8027-1037-8996-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143432Z
+ubiloginMemberOf: cn=Password Users,ou=Password,ou=System,cn=Ubilogin,dc=loc
+ alhost
+entryCSN: 20171228143436.749110Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143436Z
+
+dn: cn=Ubilogin,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: ubiloginAgent
+cn: Ubilogin
+ubiloginAllowAccess: cn=Administrators,ou=System,cn=Ubilogin,dc=localhost
+description: Ubilogin Server Management
+ubiloginEnabled: TRUE
+ubiloginPlatform: Java
+ubiloginAgentType: http://ubisecure.com/ubilogin/ticket#uas
+structuralObjectClass: ubiloginAgent
+entryUUID: f710ef74-8027-1037-8997-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143433Z
+userPassword:: e1NTSEF9NExGY1pDUGJEKzlHcGdEQnlyNXE2ODl3ek5LTkhnUW1yVnNMQlE9P
+ Q==
+ubiloginSecret: {3DES}yUdhNuaIbx3nfriTgO/2kUd66mITN1aGINnQ0dpmZYc=
+ubiloginEntityID: urn:uuid:8ce106e9-4936-4a73-93b8-65506462cd99
+entryCSN: 20171228143556.748513Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143556Z
+
+dn: cn=password.1,cn=Ubilogin,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: ubiloginAuthMethod
+cn: password.1
+ubiloginEnabled: TRUE
+structuralObjectClass: ubiloginAuthMethod
+entryUUID: f74dac84-8027-1037-8998-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143433Z
+entryCSN: 20171228143433.522867Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143433Z
+
+dn: cn=LogViewer,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: ubiloginAgent
+cn: LogViewer
+ubiloginAllowAccess: cn=Administrators,ou=System,cn=Ubilogin,dc=localhost
+description: Ubilogin LogViewer
+ubiloginEnabled: TRUE
+ubiloginPlatform: Java
+ubiloginAgentType: http://ubisecure.com/ubilogin/ticket#uas
+structuralObjectClass: ubiloginAgent
+entryUUID: f75e63d0-8027-1037-8999-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143433Z
+ubiloginSecret: {3DES}1+xsCyiONAzsEHb/Kux2W8+cCHK3jr8MikZRRKfwccY=
+ubiloginEntityID: urn:uuid:a80d9f17-d6d6-408f-a336-c1e32fc315a5
+entryCSN: 20171228143557.137969Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143557Z
+
+dn: cn=password.1,cn=LogViewer,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: ubiloginAuthMethod
+cn: password.1
+ubiloginEnabled: TRUE
+structuralObjectClass: ubiloginAuthMethod
+entryUUID: f7752ea8-8027-1037-899a-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143433Z
+entryCSN: 20171228143433.781788Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143433Z
+
+dn: cn=Search,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: ubiloginAgent
+cn: Search
+ubiloginAllowAccess: cn=Administrators,ou=System,cn=Ubilogin,dc=localhost
+description: Ubilogin Search
+ubiloginEnabled: TRUE
+ubiloginPlatform: Java
+ubiloginAgentType: http://ubisecure.com/ubilogin/ticket#uas
+structuralObjectClass: ubiloginAgent
+entryUUID: f78716fe-8027-1037-899b-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143433Z
+userPassword:: e1NTSEF9R1BMQ011eERuNW1ab2NvUjlJa3QvRk9saGRFSlhzOG5uYzY5dUE9P
+ Q==
+ubiloginSecret: {3DES}v5fvh1y3eaMGb/zFsp/8Fu4/FIVgMnADCNQPH8nXEhY=
+ubiloginEntityID: urn:uuid:54d8b141-8e7a-4736-95da-b6a04cb0f3a4
+entryCSN: 20171228143557.170975Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143557Z
+
+dn: cn=password.1,cn=Search,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: ubiloginAuthMethod
+cn: password.1
+ubiloginEnabled: TRUE
+structuralObjectClass: ubiloginAuthMethod
+entryUUID: f799e5e0-8027-1037-899c-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143434Z
+entryCSN: 20171228143434.022409Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143434Z
+
+dn: cn=Server,ou=System,cn=Ubilogin,dc=localhost
+ubiloginTicketValidityTime: 60
+description: Ubilogin Authentication Server
+objectClass: top
+objectClass: ubiloginUAS
+cn: Server
+structuralObjectClass: ubiloginUAS
+entryUUID: f7abcd8c-8027-1037-899d-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143434Z
+ubiloginProtocolSupport: urn:oasis:names:tc:SAML:2.0:protocol
+ubiloginProtocolSupport: http://ubisecure.com/ubilogin/ticket
+ubiloginProtocolSupport: http://docs.oasis-open.org/wsfed/federation/200706
+ubiloginProtocolSupport: urn:ietf:rfc:6749
+ubiloginProtocolSupport: http://ubisecure.com/ubilogin/tupas
+userPassword:: e1NTSEF9VFROdldmTXBLclowWUZ6d1VmZlhJVHorNUZnTzZCeUszZmZiSXc9P
+ Q==
+ubiloginSecret: {3DES}JfE/xudjJ0h+dSHKODA00JDV0W+Nu4770Do3bOZCdFE=
+ubiloginUrl: https://sso.example.com/uas
+ubiloginEntityID: https://sso.example.com/uas
+entryCSN: 20171228143557.554102Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143557Z
+
+dn: cn=password.1,cn=Server,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: ubiloginAuthMethod
+cn: password.1
+ubiloginAuthMethodType: SPI Password
+ubiloginClassname: ubilogin.method.provider.spi.DirectoryPasswordMethod
+ubiloginEnabled: TRUE
+ubiloginTitle: Password
+structuralObjectClass: ubiloginAuthMethod
+entryUUID: f80282ee-8027-1037-899e-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143434Z
+ubiloginDirectoryServiceDN: cn=Ubilogin Directory,cn=Services,ou=System,cn=U
+ bilogin,dc=localhost
+entryCSN: 20171228143435.127978Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143435Z
+
+dn: cn=password.ap,cn=Server,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: ubiloginAuthMethod
+cn: password.ap
+ubiloginAuthMethodType: SAML
+ubiloginClassname: ubilogin.method.provider.saml2.AssertionConsumerMethod
+ubiloginEnabled: TRUE
+ubiloginTitle: Password AP
+structuralObjectClass: ubiloginAuthMethod
+entryUUID: f8141784-8027-1037-899f-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143434Z
+entryCSN: 20171228143434.823220Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143434Z
+
+dn: cn=Services,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: ubiloginServices
+cn: Services
+structuralObjectClass: ubiloginServices
+entryUUID: f824fb12-8027-1037-89a0-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143434Z
+entryCSN: 20171228143434.933891Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143434Z
+
+dn: cn=Ubilogin Directory,cn=Services,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: ubiloginDirectoryService
+cn: Ubilogin Directory
+ubiloginClassname: com.ubisecure.ubilogin.directory.spi.ldap.LDAPDirectoryFa
+ ctory
+ubiloginConfString: directory ldap:///cn=Ubilogin,dc=localhost
+ubiloginConfString: directory.schema UbiloginDirectory
+ubiloginConfString: policy.password.protocol UbiloginDirectory
+ubiloginConfString: policy.password.encoding {SSHA}
+ubiloginConfString: password-name password.1
+ubiloginTitle: Ubilogin Directory
+structuralObjectClass: ubiloginDirectoryService
+entryUUID: f8314d36-8027-1037-89a1-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143435Z
+entryCSN: 20171228143435.014649Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143435Z
+
+dn: cn=Administrator,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: person
+objectClass: ubiloginUser
+cn: Administrator
+ubiloginMemberOf: cn=Administrators,ou=System,cn=Ubilogin,dc=localhost
+sn: Administrator
+uid: system
+ubiloginEnabled: TRUE
+givenName: System
+structuralObjectClass: person
+entryUUID: f88f6bf0-8027-1037-89a2-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143435Z
+entryCSN: 20171228143435.631473Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143435Z
+
+dn: cn=password.1,cn=Administrator,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: ubiloginAuthMethod
+cn: password.1
+ubiloginEnabled: TRUE
+structuralObjectClass: ubiloginAuthMethod
+entryUUID: f8fcca7e-8027-1037-89a3-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143436Z
+ubiloginConfString: {SSHA}hx5Wr9CtoCdUaVWOfYy9BRhvtglcQARjPYyJyg==
+ubiloginPasswordLastSet: 0
+entryCSN: 20171228143603.004955Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143603Z
+
+dn: cn=ServerSession,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: ubiloginSessionStore
+cn: ServerSession
+structuralObjectClass: ubiloginSessionStore
+entryUUID: f901e63a-8027-1037-89a4-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143436Z
+entryCSN: 20171228143436.381691Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143436Z
+
+dn: ou=Password,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: organizationalUnit
+objectClass: ubiloginUnit
+ou: Password
+description: Ubilogin Password
+structuralObjectClass: organizationalUnit
+entryUUID: f914f75c-8027-1037-89a5-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143436Z
+entryCSN: 20171228143436.506671Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143436Z
+
+dn: cn=Password Users,ou=Password,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: ubiloginGroup
+cn: Password Users
+description: Ubilogin Password Users
+structuralObjectClass: ubiloginGroup
+entryUUID: f926db3e-8027-1037-89a6-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143436Z
+entryCSN: 20171228143436.623807Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143436Z
+
+dn: cn=Password,ou=Password,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: ubiloginAgent
+cn: Password
+ubiloginAllowAccess: cn=Password Users,ou=Password,ou=System,cn=Ubilogin,dc=
+ localhost
+description: Ubilogin Password
+ubiloginEnabled: TRUE
+ubiloginPlatform: Java
+ubiloginAgentType: urn:oasis:names:tc:SAML:2.0:protocol
+structuralObjectClass: ubiloginAgent
+entryUUID: f94a9588-8027-1037-89a7-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143436Z
+userPassword:: e1NTSEF9SmdOTGVLbThYZjArY3BaQ21LcUh4RW4vRGhmS3N4ZHFiaVlNT3c9P
+ Q==
+entryCSN: 20171228143557.287600Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143557Z
+
+dn: cn=password.1,cn=Password,ou=Password,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: ubiloginAuthMethod
+cn: password.1
+ubiloginEnabled: TRUE
+structuralObjectClass: ubiloginAuthMethod
+entryUUID: f95b06d4-8027-1037-89a8-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143436Z
+entryCSN: 20171228143436.965816Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143436Z
+
+dn: ou=OTP Server,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: organizationalUnit
+objectClass: ubiloginUnit
+ou: OTP Server
+description: OTP Server
+structuralObjectClass: organizationalUnit
+entryUUID: f96b7e10-8027-1037-89a9-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143437Z
+entryCSN: 20171228143437.073728Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143437Z
+
+dn: cn=OTP Server,ou=OTP Server,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: ubiloginAgent
+cn: OTP Server
+description: OTP Server
+ubiloginEnabled: TRUE
+ubiloginPlatform: Java
+structuralObjectClass: ubiloginAgent
+entryUUID: f97d4d5c-8027-1037-89aa-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143437Z
+userPassword:: e1NTSEF9anNGUFZneTNBc3B2VEdaVFA4K1I3NnVqQ3hVVis4UytBTUpsYUE9P
+ Q==
+entryCSN: 20171228143557.404404Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143557Z
+
+dn: cn=OTP Server Admins,ou=OTP Server,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: ubiloginGroup
+cn: OTP Server Admins
+description: OTP Server Administrators
+structuralObjectClass: ubiloginGroup
+entryUUID: f98f068c-8027-1037-89ab-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143437Z
+entryCSN: 20171228143437.306598Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143437Z
+
+dn: ou=SSO API,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: organizationalUnit
+objectClass: ubiloginUnit
+ou: SSO API
+description: SSO Management API
+structuralObjectClass: organizationalUnit
+entryUUID: f99e5f1a-8027-1037-89ac-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143437Z
+entryCSN: 20171228143437.407169Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143437Z
+
+dn: cn=SSO API Admins,ou=SSO API,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: ubiloginGroup
+cn: SSO API Admins
+description: SSO Management API Administrators
+structuralObjectClass: ubiloginGroup
+entryUUID: f9adcff4-8027-1037-89ad-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143437Z
+entryCSN: 20171228143437.508363Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143437Z
+
+dn: cn=SSO API,ou=SSO API,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: ubiloginAgent
+cn: SSO API
+description: SSO Management API Server
+ubiloginEnabled: TRUE
+ubiloginPlatform: Java
+ubiloginAllowAccess: cn=SSO API Admins,ou=SSO API,ou=System,cn=Ubilogin,dc=l
+ ocalhost
+structuralObjectClass: ubiloginAgent
+entryUUID: f9be5e32-8027-1037-89ae-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143437Z
+ubiloginAgentType: urn:ietf:rfc:6749
+userPassword:: e1NTSEF9dURUVk9wREt2VFIwSmprR1U2ODhHenBpQXF2V2tCY3dVaDB4L1E9P
+ Q==
+ubiloginSecret: {3DES}J+idvGUbPXtflNTH+lA2tnjS8cQw323Y1fe1MdRkX7Q=
+ubiloginEntityID: 863c3550-56e9-491c-bce1-138d8b24d95c
+ubiloginMetadata: {"redirect_uris": ["https://sso.example.com/sso-api/oauth2
+ /response"],"grant_types": ["authorization_code", "password"],"client_id" :
+  "863c3550-56e9-491c-bce1-138d8b24d95c","client_secret" : "_C-1Aw2rEsCp-xSu
+ b4RD0o_C"}
+entryCSN: 20171228143557.436894Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143557Z
+
+dn: cn=Management Services,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: groupOfNames
+cn: Management Services
+member: cn=Ubilogin,ou=System,cn=Ubilogin,dc=localhost
+member: cn=OTP Server,ou=OTP Server,ou=System,cn=Ubilogin,dc=localhost
+member: cn=SSO API,ou=SSO API,ou=System,cn=Ubilogin,dc=localhost
+structuralObjectClass: groupOfNames
+entryUUID: 2ff738c0-8028-1037-89af-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143608Z
+entryCSN: 20171228143609.097700Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143609Z
+
+dn: cn=Authentication Services,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: groupOfNames
+cn: Authentication Services
+member: cn=Server,ou=System,cn=Ubilogin,dc=localhost
+member: cn=Password,ou=Password,ou=System,cn=Ubilogin,dc=localhost
+structuralObjectClass: groupOfNames
+entryUUID: 30085aa6-8028-1037-89b0-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143608Z
+entryCSN: 20171228143608.698705Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143608Z
+
+dn: cn=Reader Services,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: groupOfNames
+cn: Reader Services
+member: cn=Search,ou=System,cn=Ubilogin,dc=localhost
+structuralObjectClass: groupOfNames
+entryUUID: 3019eac8-8028-1037-89b1-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143608Z
+entryCSN: 20171228143608.813803Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143608Z
+
+dn: cn=Authentication Agents,ou=System,cn=Ubilogin,dc=localhost
+objectClass: top
+objectClass: groupOfNames
+cn: Authentication Agents
+member: cn=Authentication Agents,ou=System,cn=Ubilogin,dc=localhost
+structuralObjectClass: groupOfNames
+entryUUID: 301f2d08-8028-1037-89b2-13fcaf496ed7
+creatorsName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+createTimestamp: 20171228143608Z
+entryCSN: 20171228143608.848267Z#000000#000#000000
+modifiersName: uid=System,ou=System,cn=Ubilogin,dc=localhost
+modifyTimestamp: 20171228143608Z
+
