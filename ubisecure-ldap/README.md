@@ -31,3 +31,8 @@ And restart container again
 ```
 docker service scale ubisecure-ldap=1
 ```
+
+## Verify
+You can connect to ubisecure-ldap example by using [LDAP Admin](http://www.ldapadmin.org) and connect to docker host IP like this:
+![alt text](https://raw.githubusercontent.com/olljanat/docker-ubisecure/master/screenshots/ubisecure-ldap_connect.png "LDAP connect")
+![alt text](https://raw.githubusercontent.com/olljanat/docker-ubisecure/master/screenshots/ubisecure-ldap_list.png "LDAP list")

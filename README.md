@@ -12,7 +12,7 @@ Design principles on these have been:
 I hope that some day Ubisecure will include these scripts to part of their build process and start provide pre-created docker images for their customers.
 
 # Usage
-Download https://demo.ubisecure.com/extranet/downloads/SSO/8.2/sso-8.2.19-unix.tar.gz to ubisecure-sso folder
-and https://demo.ubisecure.com/extranet/downloads/CustomerID/5.x/5.2/5.2.7/customerid-5.2.7-linux.tar.gz to both ubisecure-sso and ubisecure-cid folders.
+Download https://demo.ubisecure.com/extranet/downloads/SSO/8.2/sso-8.2.19-unix.tar.gz to ubisecure-sso and ubisecure-ldap folders
+Download https://demo.ubisecure.com/extranet/downloads/CustomerID/5.x/5.2/5.2.7/customerid-5.2.7-linux.tar.gz to ubisecure-sso and ubisecure-cid folders.
 
 Follow readme files on folders
