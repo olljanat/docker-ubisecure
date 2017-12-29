@@ -19,7 +19,6 @@ docker service create --name ubisecure-sso --network ubisecure --replicas=1 ubis
 When you create new environment you need import LDAP data by running these commands inside of ubisecure-sso container
 ```
 cd /usr/local/ubisecure/ubilogin-sso/ubilogin
-./setup.sh
 cat ldap/cnroot.ldif ldap/uas.ldif ldap/secrets.ldif ldap/system-password.ldif ldap/openldap/groups.ldif | ldap/openldap/import.sh
 ```
 
