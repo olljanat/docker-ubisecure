@@ -12,27 +12,3 @@ docker build . -t ubisecure-ldap
 mkdir /data/ubisecure-ldap
 docker service create --name ubisecure-ldap --network ubisecure -p 389:389 --mount type=bind,source=/data/ubisecure-ldap,destination=/var/lib/ldap ubisecure-ldap
 ```
-
-# New LDAP instance init
-When you create new environment you need copy template files from container to host by running command:
-```
-docker cp <containerid>:/var/lib/ldap.template/ .
-```
-then stop container by running
-```
-docker service scale ubisecure-ldap=0
-```
-Remove default files and replace them with template files:
-```
-rm -rf /data/ubisecure-ldap/*
-mv ldap.template/* /data/ubisecure-ldap/
-```
-And restart container again
-```
-docker service scale ubisecure-ldap=1
-```
-
-## Verify
-You can connect to ubisecure-ldap example by using [LDAP Admin](http://www.ldapadmin.org) and connect to docker host IP like this:
-![alt text](https://raw.githubusercontent.com/olljanat/docker-ubisecure/master/screenshots/ubisecure-ldap_connect.png "LDAP connect")
-![alt text](https://raw.githubusercontent.com/olljanat/docker-ubisecure/master/screenshots/ubisecure-ldap_list.png "LDAP list")

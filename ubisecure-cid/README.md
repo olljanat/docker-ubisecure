@@ -2,7 +2,7 @@
 This folder contains dockerfile which will install Ubisecure CustomerID to CentOS 7.
 
 Source documentation:
-https://developer.ubisecure.com/docs/display/IDS82/ubisecure-cid+Two+Node+Installation
+https://developer.ubisecure.com/docs/display/IDS82/CustomerID+Two+Node+Installation
 
 # Docker
 ## SQL

@@ -16,12 +16,5 @@ RUN	rm -rf /etc/openldap/*; \
 # Copy updated OpenLDAP configs
 COPY /openldap/* /etc/openldap/
 
-# Create LDAP template files
-COPY /ldap-init.ldif /root/
-RUN /usr/sbin/slapd -T add -f /etc/openldap/slapd.conf -l /root/ldap-init.ldif; \
-	mkdir /var/lib/ldap.template; \
-	mv /var/lib/ldap/* /var/lib/ldap.template/; \
-	rm /root/ldap-init.ldif
-
 EXPOSE 389
 ENTRYPOINT ["/usr/sbin/slapd","-f","/etc/openldap/slapd.conf","-d","1"]
