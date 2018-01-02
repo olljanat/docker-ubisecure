@@ -8,5 +8,8 @@ docker build -t ubisecure-proxy .
 
 ## Create service
 ```bash
-docker service create --name ubisecure-proxy --network ubisecure -p 80:80 ubisecure-proxy
+docker service create --name ubisecure-proxy --network ubisecure -p 80:80 -p 443:443 ubisecure-proxy
 ```
+
+# TODO
+* Remove SSL configs from Dockerfile/nginx and do SSL offload on load balancer front of nginx

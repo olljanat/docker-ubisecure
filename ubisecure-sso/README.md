@@ -12,7 +12,7 @@ docker build . -t ubisecure-sso
 
 ### Create service
 ```
-docker service create --name ubisecure-sso --network ubisecure --replicas=1 ubisecure-sso
+docker service create --name ubisecure-sso --network ubisecure ubisecure-sso
 ```
 
 # New LDAP instance init
@@ -26,3 +26,8 @@ cat ldap/cnroot.ldif ldap/uas.ldif ldap/secrets.ldif ldap/system-password.ldif l
 You can connect to ubisecure-ldap example by using [LDAP Admin](http://www.ldapadmin.org) and connect to docker host IP like this:
 ![alt text](https://raw.githubusercontent.com/olljanat/docker-ubisecure/master/screenshots/ubisecure-ldap_connect.png "LDAP connect")
 ![alt text](https://raw.githubusercontent.com/olljanat/docker-ubisecure/master/screenshots/ubisecure-ldap_list.png "LDAP list")
+
+# TODO
+* Move hardcoded passwords/whole unix.config to docker secrets
+* Include CID adapter
+* Run setup.sh on runtime instead of installation
