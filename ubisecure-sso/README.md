@@ -29,5 +29,5 @@ You can connect to ubisecure-ldap example by using [LDAP Admin](http://www.ldapa
 
 # TODO
 * Move hardcoded passwords/whole unix.config to docker secrets
-* Include CID adapter
 * Run setup.sh on runtime instead of installation
+* Configure to use redis
