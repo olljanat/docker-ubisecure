@@ -51,9 +51,6 @@
             </server-logger>
         </audit-log>
         <management-interfaces>
-            <native-interface security-realm="ManagementRealm">
-                <socket interface="management" port="${jboss.management.native.port:9999}"/>
-            </native-interface>
             <http-interface security-realm="ManagementRealm" http-upgrade-enabled="true">
                 <socket interface="jboss-cli" port="${jboss.management.http.port:9990}"/>
             </http-interface>
@@ -65,11 +62,8 @@
     </domain-controller>
 
     <interfaces>
-        <interface name="management">
-            <inet-address value="ubisecure-cid-master"/>
-        </interface>
         <interface name="public">
-            <inet-address value="ubisecure-cid-master"/>
+            <inet-address value="0.0.0.0"/>
         </interface>
         <interface name="jboss-cli">
             <inet-address value="127.0.0.1"/>

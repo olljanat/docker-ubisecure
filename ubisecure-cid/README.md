@@ -21,7 +21,7 @@ docker build . -t ubisecure-cid
 
 ### Create service
 ```bash
-docker service create --name ubisecure-cid-master --network ubisecure --replicas=1 ubisecure-cid
+docker service create --name ubisecure-cid --network ubisecure ubisecure-cid
 ```
 
 # Setup

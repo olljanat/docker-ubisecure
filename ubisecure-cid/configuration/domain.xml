@@ -38,6 +38,7 @@
 
     <system-properties>
         <property name="java.net.preferIPv4Stack" value="true"/>
+        <property name="customerid.home" value="file:/usr/local/ubisecure/customerid/application/../"/>
     </system-properties>
 
     <management>
@@ -345,8 +346,7 @@
             <subsystem xmlns="urn:jboss:domain:undertow:3.1">
                 <buffer-cache name="default"/>
                 <server name="default-server">
-                    <http-listener name="default" socket-binding="http" redirect-socket="https" enable-http2="true"/>
-                    <https-listener name="https" socket-binding="https" security-realm="ApplicationRealm" enable-http2="true"/>
+                    <http-listener name="default" socket-binding="http" enable-http2="true"/>
                     <host name="default-host" alias="localhost">
                         <location name="/" handler="welcome-content"/>
                         <filter-ref name="server-header"/>
@@ -380,7 +380,6 @@
     </profiles>
 
     <interfaces>
-        <interface name="management"/>
         <interface name="public"/>
         <interface name="private">
             <inet-address value="${jboss.bind.address.private:127.0.0.1}"/>
@@ -393,7 +392,6 @@
     <socket-binding-groups>
         <socket-binding-group name="ha-sockets" default-interface="public">
             <socket-binding name="http" port="7080"/>
-            <socket-binding name="https" port="7443"/>
             <socket-binding name="jgroups-mping" interface="private" port="0" multicast-address="${jboss.default.multicast.address:230.0.0.4}" multicast-port="45700"/>
             <socket-binding name="jgroups-tcp" interface="private" port="7600"/>
             <socket-binding name="jgroups-tcp-fd" interface="private" port="57600"/>
