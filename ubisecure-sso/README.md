@@ -6,18 +6,18 @@ https://developer.ubisecure.com/docs/display/IDS82/SSO+Cluster+Installation
 
 # Docker
 ## Build
-```
+```bash
 docker build . -t ubisecure-sso
 ``` 
 
 ### Create service
-```
+```bash
 docker service create --name ubisecure-sso --network ubisecure ubisecure-sso
 ```
 
 # New LDAP instance init
 When you create new environment you need import LDAP data by running these commands inside of ubisecure-sso container
-```
+```bash
 cd /usr/local/ubisecure/ubilogin-sso/ubilogin
 cat ldap/cnroot.ldif ldap/uas.ldif ldap/secrets.ldif ldap/system-password.ldif ldap/openldap/groups.ldif | ldap/openldap/import.sh
 ```
