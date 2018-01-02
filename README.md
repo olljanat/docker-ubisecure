@@ -13,6 +13,9 @@ I hope that some day Ubisecure will include these scripts to part of their build
 
 # Usage
 Download https://demo.ubisecure.com/extranet/downloads/SSO/8.2/sso-8.2.19-unix.tar.gz to ubisecure-sso and ubisecure-ldap folders
-Download https://demo.ubisecure.com/extranet/downloads/CustomerID/5.x/5.2/5.2.7/customerid-5.2.7-linux.tar.gz to ubisecure-sso and ubisecure-cid folders.
+Download https://demo.ubisecure.com/extranet/downloads/CustomerID/5.x/5.2/customerid-5.2.12-linux.tar.gz to ubisecure-sso and ubisecure-cid folders.
 
 Follow readme files on folders
+
+# Picture
+![alt text](https://raw.githubusercontent.com/olljanat/docker-ubisecure/master/screenshots/ubisecure_on_docker.png "Ubisecure on docker")
