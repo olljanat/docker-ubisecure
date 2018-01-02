@@ -1,31 +1,26 @@
-FROM jboss/base-jdk:8
+FROM tomcat:8.0.48-jre8-alpine
 ENV SSO_VERSION=8.2.19
-ENV CID_VERSION=5.2.12
-ENV CID_SSO_ADAPTER_VERSION=5.0.29
-ENV JRE_HOME=/usr/lib/jvm/java
+ENV JRE_HOME=/usr/lib/jvm/default-jvm/jre/
 
-USER root
-
-# Pre-requirements
-RUN yum install -y glibc.i686; \
-	yum update -y libgcc; \
-	yum install -y libgcc.i686 initscripts
+RUN apk update; \
+	apk add openldap-clients
 
 COPY /sso-${SSO_VERSION}-unix.tar.gz /tmp
 RUN mkdir /usr/local/ubisecure/; \
 	tar -zxf /tmp/sso-${SSO_VERSION}-unix.tar.gz -C /usr/local/ubisecure/; \
-	rm /tmp/sso-${SSO_VERSION}-unix.tar.gz
+	rm /tmp/sso-${SSO_VERSION}-unix.tar.gz; \
+	rm -rf /usr/local/ubisecure/ubilogin-sso/tomcat; \
+	ln -s /usr/local/tomcat /usr/local/ubisecure/ubilogin-sso/tomcat; \
+	rm -rf /usr/local/tomcat/webapps; \
+	ln -s /usr/local/ubisecure/ubilogin-sso/ubilogin/webapps /usr/local/tomcat/webapps; \
+	rm -f /usr/local/ubisecure/ubilogin-sso/openldap/bin/*; \
+	ln -s /usr/bin/ldapmodify /usr/local/ubisecure/ubilogin-sso/openldap/bin/ldapmodify; \
+	rm -rf /usr/local/ubisecure/ubilogin-sso/template/config/tomcat
 	
 WORKDIR /usr/local/ubisecure/ubilogin-sso/ubilogin
 
-# Ubisecure Server
 COPY /unix.config /usr/local/ubisecure/ubilogin-sso/ubilogin/
 RUN ./setup.sh
+COPY /keystore.pfx /usr/local/ubisecure/ubilogin-sso/ubilogin/custom/tomcat/keystore.pfx
+COPY /server.xml /usr/local/ubisecure/ubilogin-sso/tomcat/conf/
 
-# Ubisecure SSO Tomcat
-RUN ./config/tomcat/install.sh; \
-	ln -s  /sbin/pidof /sbin/pidofproc
-
-
-EXPOSE 8443
-ENTRYPOINT ["/usr/local/ubisecure/ubilogin-sso/ubilogin/config/tomcat/jsvc.sh", "-nodetach", "org.apache.catalina.startup.Bootstrap"]

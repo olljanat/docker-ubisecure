@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
+<!-- 
+   -	Apache Tomcat server configuration file for Ubisecure SSO (default)
+   -	/usr/local/ubisecure/ubilogin-sso/ubilogin/config/tomcat/conf/server.xml
+   -	Tue Jan 02 19:57:09 UTC 2018
+  -->
 <Server port="-1">
+
     <Service name="SSO">
-		<Connector port="8080" protocol="HTTP/1.1"
-               connectionTimeout="20000"
-               redirectPort="8443" />
-			   
+
+        <Connector 
+            port="8080" 
+			scheme="https" secure="true" 
+            proxyName="sso.example.com" proxyPort="443"
+			maxThreads="150" protocol="HTTP/1.1" 
+            useBodyEncodingForURI="true" maxHttpHeaderSize="65536"
+			SSLEnabled="false" 
+			sslProtocol="TLS" clientAuth="false"
+            keystoreFile="/usr/local/ubisecure/ubilogin-sso/ubilogin/custom/tomcat/keystore.pfx"
+            keystorePass="changeit" keystoreType="PKCS12"
+        />
+
         <Engine name="SSO" defaultHost="sso.example.com">
+
             <Host name="sso.example.com" appBase="404" 
                 unpackWARs="false" autoDeploy="false">
 
@@ -18,14 +34,16 @@
                 <Context path="/uas" docBase="${catalina.base}/webapps/uas"/>
                 <Context path="/ubilogin" docBase="${catalina.base}/webapps/ubilogin"/>
                 <Context path="/logviewer" docBase="${catalina.base}/webapps/logviewer"/>
-				<!-- 
                 <Context path="/search" docBase="${catalina.base}/webapps/search"/>
                 <Context path="/sso-api" docBase="${catalina.base}/webapps/sso-api"/>
                 <Context path="/cdc" docBase="${catalina.base}/webapps/cdc"/>
                 <Context path="/password" docBase="${catalina.base}/webapps/password"/>
                 <Context path="/otpserver" docBase="${catalina.base}/webapps/otpserver"/>          
-				-->
+
             </Host>
+
         </Engine>
+
     </Service>
+
 </Server>
