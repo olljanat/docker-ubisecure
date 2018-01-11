@@ -1,8 +1,9 @@
 # Ubisecure SSO
-This folder contains dockerfile which will install Ubisecure SSO to CentOS 7.
+This folder contains dockerfile which will install Ubisecure SSO to Alpine Linux.
 
 Source documentation:
 https://developer.ubisecure.com/docs/display/IDS82/SSO+Cluster+Installation
+https://developer.ubisecure.com/docs/display/IDS82/Ubisecure+Password+Installation
 
 # Docker
 ## Build

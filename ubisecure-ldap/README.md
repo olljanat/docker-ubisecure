@@ -1,5 +1,5 @@
 # ubisecure-ldap
-This folder contains dockerfile which will install OpenLDAP to CentOS 7 and include Ubisecure SSO schemas to it.
+This folder contains dockerfile which will install OpenLDAP to Alpine Linux and include Ubisecure SSO schemas to it.
 
 # Docker
 ## Build
