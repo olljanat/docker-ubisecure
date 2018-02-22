@@ -1,5 +1,5 @@
-FROM tomcat:8.0.48-jre8-alpine
-ENV SSO_VERSION=8.2.19
+FROM tomcat:8.0.50-jre8-alpine
+ENV SSO_VERSION=8.2.19-2
 ENV JRE_HOME=/usr/lib/jvm/default-jvm/jre/
 
 RUN apk update; \
@@ -8,6 +8,7 @@ RUN apk update; \
 COPY /sso-${SSO_VERSION}-unix.tar.gz /tmp
 RUN mkdir /usr/local/ubisecure/; \
 	tar -zxf /tmp/sso-${SSO_VERSION}-unix.tar.gz -C /usr/local/ubisecure/; \
+	chmod u+x /usr/local/ubisecure/ubilogin-sso/ubilogin/setup.sh; \
 	rm /tmp/sso-${SSO_VERSION}-unix.tar.gz; \
 	rm -rf /usr/local/ubisecure/ubilogin-sso/tomcat; \
 	ln -s /usr/local/tomcat /usr/local/ubisecure/ubilogin-sso/tomcat; \
