@@ -5,6 +5,9 @@ ENV JRE_HOME=/usr/lib/jvm/default-jvm/jre/
 RUN apk update; \
 	apk add openldap-clients
 
+# Workaround to get "javax.mail" classes which are needed by password feature 
+COPY /jre-lib/ /usr/lib/jvm/java-1.8-openjdk/jre/lib/ext/
+
 COPY /sso-${SSO_VERSION}-unix.tar.gz /tmp
 RUN mkdir /usr/local/ubisecure/; \
 	tar -zxf /tmp/sso-${SSO_VERSION}-unix.tar.gz -C /usr/local/ubisecure/; \
@@ -23,5 +26,5 @@ WORKDIR /usr/local/ubisecure/ubilogin-sso/ubilogin
 COPY /unix.config /usr/local/ubisecure/ubilogin-sso/ubilogin/
 RUN ./setup.sh
 COPY /keystore.pfx /usr/local/ubisecure/ubilogin-sso/ubilogin/custom/tomcat/keystore.pfx
-COPY /server.xml /usr/local/ubisecure/ubilogin-sso/tomcat/conf/
+COPY /tomcat-conf/ /usr/local/ubisecure/ubilogin-sso/tomcat/conf/
 

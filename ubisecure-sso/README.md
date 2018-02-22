@@ -32,3 +32,7 @@ You can connect to ubisecure-ldap example by using [LDAP Admin](http://www.ldapa
 * Move hardcoded passwords/whole unix.config to docker secrets
 * Run setup.sh on runtime instead of installation
 * Configure to use redis
+* Figure out where to get mail.jar
+
+# Workarounds
+Currently you need copy ubilogin-sso\java\linux-x64\jre\lib\ext\mail.jar file from SSO 8.1.x media to ubisecure-sso\jre-lib other why password application cannot doesn't start.
