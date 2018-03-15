@@ -1,0 +1,26 @@
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_ERR">
+            <PatternLayout pattern="$${ctx:remote-addr:--} $${ctx:sub:--} [%d{ISO8601}{UTC}] [%p] %c{2} %msg%n" />
+        </Console>
+        <RollingFile name="File" 
+                fileName="@logs.dir.&@/sso-api.log" 
+                filePattern="@logs.dir.&@/sso-api-%d{yyyy-MM-dd}.%i.log">
+            <PatternLayout pattern="$${ctx:remote-addr:--} $${ctx:sub:--} [%d{ISO8601}{UTC}] [%p] %c{2} %msg%n" />
+            <Policies>
+                <OnStartupTriggeringPolicy />
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy />
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.globalsign.iam.sso.api" level="info">
+            <AppenderRef ref="File" />
+        </Logger>
+        <Logger name="com.globalsign.iam.sso.api.directory.util.SearchUtil" level="info" />
+        <Root level="info">
+            <AppenderRef ref="Console" />
+        </Root>
+    </Loggers>
+</Configuration>
