@@ -23,8 +23,8 @@ RUN mkdir /usr/local/ubisecure/; \
 	
 WORKDIR /usr/local/ubisecure/ubilogin-sso/ubilogin
 
+COPY /template/ /usr/local/ubisecure/ubilogin-sso/template/
 COPY /unix.config /usr/local/ubisecure/ubilogin-sso/ubilogin/
 RUN ./setup.sh
 COPY /keystore.pfx /usr/local/ubisecure/ubilogin-sso/ubilogin/custom/tomcat/keystore.pfx
 COPY /tomcat-conf/ /usr/local/ubisecure/ubilogin-sso/tomcat/conf/
-COPY /template/ /usr/local/ubisecure/ubilogin-sso/template/

@@ -3,20 +3,12 @@
         <Console name="Console" target="SYSTEM_ERR">
             <PatternLayout pattern="$${ctx:remote-addr:--} $${ctx:sub:--} [%d{ISO8601}{UTC}] [%p] %c{2} %msg%n" />
         </Console>
-        <RollingFile name="File" 
-                fileName="@logs.dir.&@/sso-api.log" 
-                filePattern="@logs.dir.&@/sso-api-%d{yyyy-MM-dd}.%i.log">
-            <PatternLayout pattern="$${ctx:remote-addr:--} $${ctx:sub:--} [%d{ISO8601}{UTC}] [%p] %c{2} %msg%n" />
-            <Policies>
-                <OnStartupTriggeringPolicy />
-                <TimeBasedTriggeringPolicy />
-            </Policies>
-            <DefaultRolloverStrategy />
-        </RollingFile>
+        <Syslog name="Syslog" host="ubisecure-syslog" port="514" protocol="UDP" charset="ISO-8859-1" facility="LOCAL4">
+        </Syslog>
     </Appenders>
     <Loggers>
         <Logger name="com.globalsign.iam.sso.api" level="info">
-            <AppenderRef ref="File" />
+            <AppenderRef ref="Syslog" />
         </Logger>
         <Logger name="com.globalsign.iam.sso.api.directory.util.SearchUtil" level="info" />
         <Root level="info">
