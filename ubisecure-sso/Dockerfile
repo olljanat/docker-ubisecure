@@ -1,5 +1,5 @@
 FROM tomcat:8.0.50-jre8-alpine
-ENV SSO_VERSION=8.2.19-2
+ENV SSO_VERSION=8.2.24
 ENV JRE_HOME=/usr/lib/jvm/default-jvm/jre/
 
 RUN apk update; \
@@ -20,11 +20,12 @@ RUN mkdir /usr/local/ubisecure/; \
 	rm -f /usr/local/ubisecure/ubilogin-sso/openldap/bin/*; \
 	ln -s /usr/bin/ldapmodify /usr/local/ubisecure/ubilogin-sso/openldap/bin/ldapmodify; \
 	rm -rf /usr/local/ubisecure/ubilogin-sso/template/config/tomcat
-	
+
 WORKDIR /usr/local/ubisecure/ubilogin-sso/ubilogin
 
 COPY /template/ /usr/local/ubisecure/ubilogin-sso/template/
-COPY /unix.config /usr/local/ubisecure/ubilogin-sso/ubilogin/
-RUN ./setup.sh
 COPY /keystore.pfx /usr/local/ubisecure/ubilogin-sso/ubilogin/custom/tomcat/keystore.pfx
 COPY /tomcat-conf/ /usr/local/ubisecure/ubilogin-sso/tomcat/conf/
+
+COPY /ubisecure.sh /usr/local/tomcat/ubisecure.sh
+CMD ["sh","/usr/local/tomcat/ubisecure.sh"]

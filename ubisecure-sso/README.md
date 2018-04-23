@@ -11,9 +11,15 @@ https://developer.ubisecure.com/docs/display/IDS82/Ubisecure+Password+Installati
 docker build . -t ubisecure-sso
 ``` 
 
-### Create service
+## Create docker secret from unix.config file
 ```bash
-docker service create --name ubisecure-sso --network ubisecure ubisecure-sso
+SECRETNAME='ubisecure-sso-'`date --utc +%Y%m%d%H%M%S`
+echo $DATAPROTECTION | docker secret create $SECRETNAME ./unix.config
+```
+
+## Create service
+```bash
+docker service create --name ubisecure-sso --network ubisecure --secret source=$SECRETNAME,target=/usr/local/ubisecure/ubilogin-sso/ubilogin/unix.config ubisecure-sso
 ```
 
 # New LDAP instance init
