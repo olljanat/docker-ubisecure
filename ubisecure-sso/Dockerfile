@@ -26,6 +26,7 @@ WORKDIR /usr/local/ubisecure/ubilogin-sso/ubilogin
 COPY /template/ /usr/local/ubisecure/ubilogin-sso/template/
 COPY /keystore.pfx /usr/local/ubisecure/ubilogin-sso/ubilogin/custom/tomcat/keystore.pfx
 COPY /tomcat-conf/ /usr/local/ubisecure/ubilogin-sso/tomcat/conf/
+COPY /password-web.xml /usr/local/ubisecure/ubilogin-sso/tomcat/webapps/password/WEB-INF/web.xml
 
 COPY /ubisecure.sh /usr/local/tomcat/ubisecure.sh
 CMD ["sh","/usr/local/tomcat/ubisecure.sh"]
