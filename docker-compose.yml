@@ -1,4 +1,4 @@
-version: "3.6"
+version: "3.4"
 services:
   ldap-master:
     image: ubisecure-ldap:${UBISECURE_LDAP_VERSION}
@@ -84,7 +84,7 @@ configs:
     file: ./ubisecure-syslog/syslog-ng.conf
 secrets:
   sso-unix-config:
-    file: ./ubisecure-sso/sso-unix.config
+    file: ./ubisecure-sso/unix.config
 networks:
     frontend:
         driver: overlay

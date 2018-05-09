@@ -21,7 +21,7 @@ Follow readme files on folders
 ```bash
 export UBISECURE_LDAP_VERSION=v1
 export UBISECURE_SSO_VERSION=v1
-docker stack deploy --compose-file .\docker-compose.yml ubisecure
+docker stack deploy --compose-file ./docker-compose.yml ubisecure
 ```
 
 
