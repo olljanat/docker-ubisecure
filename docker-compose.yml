@@ -12,10 +12,10 @@ services:
     environment:
      - role=master
     volumes:
-     - "/data/ubisecure-ldap:/var/lib/openldap"
+     - "/data/ubisecure-ldap-master:/var/lib/openldap"
     labels:
-     - "app:ubisecure"
-     - "tier:backend"
+     - app=ubisecure
+     - tier=backend
     networks:
       backend:
         aliases:
@@ -32,10 +32,10 @@ services:
     environment:
      - role=slave
     volumes:
-     - "/data/ubisecure-ldap:/var/lib/openldap"
+     - "/data/ubisecure-ldap-slave:/var/lib/openldap"
     labels:
-     - "app:ubisecure"
-     - "tier:backend"
+     - app=ubisecure
+     - tier=backend
     networks:
       backend:
         aliases:
@@ -51,13 +51,14 @@ services:
           - node.role==worker
           - node.platform.os==linux
     labels:
-     - "app:ubisecure"
-     - "tier:frontend"
+     - app=ubisecure
+     - tier=frontend
     secrets:
      - source: sso-unix-config
        target: /usr/local/ubisecure/ubilogin-sso/ubilogin/unix.config
     networks:
      - frontend
+     - backend
   syslog:
     image: balabit/syslog-ng:3.14.1
     deploy:
@@ -70,8 +71,8 @@ services:
     volumes:
      - "/data/ubisecure-syslog:/logs"
     labels:
-     - "app:ubisecure"
-     - "tier:backend"
+     - app=ubisecure
+     - tier=backend
     configs:
      - source: syslog
        target: /etc/syslog-ng/syslog-ng.conf

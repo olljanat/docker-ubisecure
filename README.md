@@ -19,6 +19,10 @@ Follow readme files on folders
 
 # Start whole stack on Docker Swarm
 ```bash
+docker node update --label-add ubisecure-ldap=master <nodeid>
+docker node update --label-add ubisecure-ldap=slave <nodeid>
+docker node update --label-add ubisecure-syslog=true <nodeid>
+
 export UBISECURE_LDAP_VERSION=v1
 export UBISECURE_SSO_VERSION=v1
 docker stack deploy --compose-file ./docker-compose.yml ubisecure

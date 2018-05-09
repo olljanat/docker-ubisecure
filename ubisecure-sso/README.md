@@ -19,7 +19,7 @@ echo $DATAPROTECTION | docker secret create $SECRETNAME ./unix.config
 
 ## Create service
 ```bash
-docker service create --name ubisecure-sso --network ubisecure --secret source=$SECRETNAME,target=/usr/local/ubisecure/ubilogin-sso/ubilogin/unix.config ubisecure-sso
+docker service create --name ubisecure_sso --network name=ubisecure,alias=sso --secret source=$SECRETNAME,target=/usr/local/ubisecure/ubilogin-sso/ubilogin/unix.config ubisecure-sso
 ```
 
 # New LDAP instance init

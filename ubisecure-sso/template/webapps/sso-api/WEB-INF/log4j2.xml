@@ -3,7 +3,7 @@
         <Console name="Console" target="SYSTEM_ERR">
             <PatternLayout pattern="$${ctx:remote-addr:--} $${ctx:sub:--} [%d{ISO8601}{UTC}] [%p] %c{2} %msg%n" />
         </Console>
-        <Syslog name="Syslog" host="ubisecure-syslog" port="514" protocol="UDP" charset="ISO-8859-1" facility="LOCAL4">
+        <Syslog name="Syslog" host="syslog" port="514" protocol="UDP" charset="ISO-8859-1" facility="LOCAL4">
         </Syslog>
     </Appenders>
     <Loggers>
