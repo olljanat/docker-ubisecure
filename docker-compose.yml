@@ -1,0 +1,92 @@
+version: "3.6"
+services:
+  ldap-master:
+    image: ubisecure-ldap:${UBISECURE_LDAP_VERSION}
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role==worker
+          - node.platform.os==linux
+          - node.labels.ubisecure-ldap==master
+    environment:
+     - role=master
+    volumes:
+     - "/data/ubisecure-ldap:/var/lib/openldap"
+    labels:
+     - "app:ubisecure"
+     - "tier:backend"
+    networks:
+      backend:
+        aliases:
+          - ldap-master
+  ldap-slave:
+    image: ubisecure-ldap:${UBISECURE_SSO_VERSION}
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role==worker
+          - node.platform.os==linux
+          - node.labels.ubisecure-ldap==slave
+    environment:
+     - role=slave
+    volumes:
+     - "/data/ubisecure-ldap:/var/lib/openldap"
+    labels:
+     - "app:ubisecure"
+     - "tier:backend"
+    networks:
+      backend:
+        aliases:
+          - ldap-slave
+  sso:
+    image: ubisecure-sso:v1
+    ports:
+      - "8080:8080"
+    deploy:
+      mode: global
+      placement:
+        constraints:
+          - node.role==worker
+          - node.platform.os==linux
+    labels:
+     - "app:ubisecure"
+     - "tier:frontend"
+    secrets:
+     - source: sso-unix-config
+       target: /usr/local/ubisecure/ubilogin-sso/ubilogin/unix.config
+    networks:
+     - frontend
+  syslog:
+    image: balabit/syslog-ng:3.14.1
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role==worker
+          - node.platform.os==linux
+          - node.labels.ubisecure-syslog==true
+    volumes:
+     - "/data/ubisecure-syslog:/logs"
+    labels:
+     - "app:ubisecure"
+     - "tier:backend"
+    configs:
+     - source: syslog
+       target: /etc/syslog-ng/syslog-ng.conf
+    networks:
+      backend:
+        aliases:
+          - syslog
+configs:
+  syslog:
+    file: ./ubisecure-syslog/syslog-ng.conf
+secrets:
+  sso-unix-config:
+    file: ./ubisecure-sso/sso-unix.config
+networks:
+    frontend:
+        driver: overlay
+    backend:
+        driver: overlay

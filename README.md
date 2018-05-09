@@ -16,5 +16,14 @@ Download https://demo.ubisecure.com/extranet/downloads/SSO/8.2/sso-8.2.24-unix.t
 
 Follow readme files on folders
 
+
+# Start whole stack on Docker Swarm
+```bash
+export UBISECURE_LDAP_VERSION=v1
+export UBISECURE_SSO_VERSION=v1
+docker stack deploy --compose-file .\docker-compose.yml ubisecure
+```
+
+
 # Picture
 ![alt text](https://raw.githubusercontent.com/olljanat/docker-ubisecure/master/screenshots/ubisecure_on_docker.png "Ubisecure on docker")
