@@ -1,5 +1,5 @@
 FROM tomcat:8.0.50-jre8-alpine
-ENV SSO_VERSION=8.2.24
+ENV SSO_VERSION=8.2.25-1
 ENV JRE_HOME=/usr/lib/jvm/default-jvm/jre/
 
 RUN apk update; \

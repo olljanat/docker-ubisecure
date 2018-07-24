@@ -1,5 +1,5 @@
 FROM alpine
-ENV SSO_VERSION=8.2.24
+ENV SSO_VERSION=8.2.25-1
 
 # Install OpenLDAP server
 RUN apk add --no-cache openldap openldap-back-bdb; \

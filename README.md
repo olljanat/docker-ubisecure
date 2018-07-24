@@ -12,7 +12,7 @@ Design principles on these have been:
 I hope that some day Ubisecure will include these scripts to part of their build process and start provide pre-created docker images for their customers.
 
 # Usage
-Download https://demo.ubisecure.com/extranet/downloads/SSO/8.2/sso-8.2.24-unix.tar.gz to ubisecure-sso and ubisecure-ldap folders
+Download https://demo.ubisecure.com/extranet/downloads/SSO/8.2/sso-8.2.25-1-unix.tar.gz to ubisecure-sso and ubisecure-ldap folders
 
 Follow readme files on folders
 
