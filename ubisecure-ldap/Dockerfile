@@ -18,9 +18,6 @@ RUN	tar -zxf /sso-${SSO_VERSION}-unix.tar.gz -C /tmp/; \
 	chmod 444 /etc/openldap/schema/* -R; \
 	rm -rf /tmp/ubilogin-sso
 
-# Copy updated OpenLDAP configs
-COPY /openldap/* /etc/openldap/
-
 RUN	chown :ldap /etc/openldap/*; \
 	chmod 640 /etc/openldap/*
 
