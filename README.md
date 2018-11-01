@@ -1,13 +1,13 @@
 # docker-ubisecure
-This repository contains script and dockerfiles to dockerize Ubisecure SSO and CustomerID applications.
+This repository contains script and dockerfiles to dockerize Ubisecure SSO application and it dependencies.
 
 Design principles on these have been:
 * Use as much existing official docker images as possible.
 * Minimize amount of Ubisecure customizations as much as possible.
-* Only one role per containers.
 * Make containers as generic as possible.
-* TODO: High availability configuration is used for everything
-* TODO: Security by default...
+* High availability configuration is used for everything.
+** TODO: Include Redis and make SSO HA active/active.
+* Secure by default.
 
 I hope that some day Ubisecure will include these scripts to part of their build process and start provide pre-created docker images for their customers.
 

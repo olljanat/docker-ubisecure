@@ -2,6 +2,17 @@ version: "3.4"
 services:
   ldap-master:
     image: ubisecure-ldap:${UBISECURE_LDAP_VERSION}
+    entrypoint:
+     - /usr/sbin/slapd
+     - -f
+     - /etc/openldap/slapd.conf
+     - -d
+     - "256"
+    ports:
+      - target: 389
+        published: 389
+        protocol: tcp
+        mode: host
     deploy:
       replicas: 1
       placement:
@@ -16,12 +27,23 @@ services:
     labels:
      - app=ubisecure
      - tier=backend
+    configs:
+     - source: ldap-master-slapd.conf
+       target: /etc/openldap/slapd.conf
+     - source: ldap-base.conf
+       target: /etc/openldap/base.conf
     networks:
       backend:
         aliases:
           - ldap-master
   ldap-slave:
-    image: ubisecure-ldap:${UBISECURE_SSO_VERSION}
+    image: ubisecure-ldap:${UBISECURE_LDAP_VERSION}
+    entrypoint:
+     - /usr/sbin/slapd
+     - -f
+     - /etc/openldap/slapd.conf
+     - -d
+     - "256"
     deploy:
       replicas: 1
       placement:
@@ -36,26 +58,39 @@ services:
     labels:
      - app=ubisecure
      - tier=backend
+    configs:
+     - source: ldap-slave-slapd.conf
+       target: /etc/openldap/slapd.conf
+     - source: ldap-base.conf
+       target: /etc/openldap/base.conf
     networks:
       backend:
         aliases:
           - ldap-slave
-  sso:
-    image: ubisecure-sso:v1
     ports:
-      - "8080:8080"
+      - target: 389
+        published: 389
+        protocol: tcp
+        mode: host
+  sso:
+    image: ubisecure-sso:${UBISECURE_SSO_VERSION}
+    ports:
+      - target: 8080
+        published: 8080
+        protocol: tcp
+        mode: host
     deploy:
       mode: global
       placement:
         constraints:
           - node.role==worker
           - node.platform.os==linux
+    secrets:
+     - source: sso-unix.config
+       target: /usr/local/ubisecure/ubilogin-sso/ubilogin/unix.config
     labels:
      - app=ubisecure
      - tier=frontend
-    secrets:
-     - source: sso-unix-config
-       target: /usr/local/ubisecure/ubilogin-sso/ubilogin/unix.config
     networks:
      - frontend
      - backend
@@ -74,17 +109,23 @@ services:
      - app=ubisecure
      - tier=backend
     configs:
-     - source: syslog
+     - source: syslog-ng.conf
        target: /etc/syslog-ng/syslog-ng.conf
     networks:
       backend:
         aliases:
           - syslog
 configs:
-  syslog:
+  syslog-ng.conf:
     file: ./ubisecure-syslog/syslog-ng.conf
+  ldap-master-slapd.conf:
+    file: ./ubisecure-ldap/ldap-master-slapd.conf
+  ldap-slave-slapd.conf:
+    file: ./ubisecure-ldap/ldap-slave-slapd.conf
+  ldap-base.conf:
+    file: ./ubisecure-ldap/ldap-base.conf
 secrets:
-  sso-unix-config:
+  sso-unix.config:
     file: ./ubisecure-sso/unix.config
 networks:
     frontend:
