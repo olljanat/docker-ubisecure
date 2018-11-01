@@ -6,7 +6,6 @@ Design principles on these have been:
 * Minimize amount of Ubisecure customizations as much as possible.
 * Make containers as generic as possible.
 * High availability configuration is used for everything.
-** TODO: Include Redis and make SSO HA active/active.
 * Secure by default.
 
 I hope that some day Ubisecure will include these scripts to part of their build process and start provide pre-created docker images for their customers.
