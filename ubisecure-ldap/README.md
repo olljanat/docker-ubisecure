@@ -19,7 +19,3 @@ docker service create --name ubisecure_ldap-master --network name=ubisecure,alia
 mkdir /data/ubisecure-ldap-slave
 docker service create --name ubisecure_ldap-slave --network name=ubisecure,alias=ldap-slave --mount type=bind,source=/data/ubisecure-ldap-slave,destination=/var/lib/openldap ubisecure-ldap
 ```
-
-# TODO
-* Change OpenLDAP running with ldap user
-* Finalize master/slave config

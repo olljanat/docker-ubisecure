@@ -35,8 +35,6 @@ You can connect to ubisecure-ldap example by using [LDAP Admin](http://www.ldapa
 ![alt text](https://raw.githubusercontent.com/olljanat/docker-ubisecure/master/screenshots/ubisecure-ldap_list.png "LDAP list")
 
 # TODO
-* Move hardcoded passwords/whole unix.config to docker secrets
-* Run setup.sh on runtime instead of installation
 * Configure to use redis
 * Figure out where to get mail.jar
 
