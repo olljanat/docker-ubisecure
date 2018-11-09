@@ -39,7 +39,7 @@
 		auth="Container"
 		type="javax.mail.Session"
 		mail.smtp.host="host"
-		mail.from="example@example.com"
+		mail.smtp.from="example@example.com"
 		mail.smtp.port="25"
 		mail.smtp.auth="false"
 		mail.smtp.user="example" />
